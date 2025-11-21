@@ -13,7 +13,9 @@ const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
 const allowedOrigins = process.env.CLIENT_URL
-  ? process.env.CLIENT_URL.split(",")
+  ? process.env.CLIENT_URL.split(",").map(url => url.trim())
+  : process.env.NODE_ENV === "production"
+  ? []
   : ["http://localhost:3000"];
 
 app.use(

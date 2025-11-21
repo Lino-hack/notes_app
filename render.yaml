@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: notes-backend
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install && npm run build || echo "No build script"
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false
+      - key: MONGO_DB
+        value: notes-app
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: CLIENT_URL
+        sync: false
+      - key: API_BASE_URL
+        sync: false
+      - key: UPLOAD_DIR
+        value: /opt/render/project/src/backend/uploads
+

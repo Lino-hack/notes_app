@@ -192,6 +192,37 @@ N’oubliez pas de créer vos issues / PR GitHub en vous basant sur ce référen
 
 ---
 
+## 🚀 Déploiement
+
+L'application peut être déployée en production avec plusieurs options :
+
+### Option recommandée (Gratuite)
+
+- **Backend** : [Render](https://render.com) (gratuit)
+- **Frontend** : [Vercel](https://vercel.com) (gratuit)
+- **Base de données** : [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) (gratuit tier M0)
+
+📖 **Guide complet** : Voir [DEPLOIEMENT.md](./DEPLOIEMENT.md)
+
+### Déploiement rapide
+
+1. **MongoDB Atlas** : Créez un cluster gratuit et récupérez la connection string
+2. **Backend (Render)** :
+   - Connectez votre repo GitHub
+   - Render détectera automatiquement `render.yaml`
+   - Configurez les variables d'environnement (voir DEPLOIEMENT.md)
+3. **Frontend (Vercel)** :
+   - Importez votre repo GitHub
+   - Root directory : `frontend`
+   - Variable d'environnement : `REACT_APP_API_URL=https://votre-backend.onrender.com/api`
+
+### Fichiers de configuration
+
+- `render.yaml` - Configuration Render pour le backend
+- `vercel.json` - Configuration Vercel pour le frontend
+- `netlify.toml` - Alternative Netlify
+- `railway.json` - Alternative Railway
+
 ## Ressources utiles
 
 - `docs/USER_GUIDE.md` : parcours utilisateur et FAQ.
