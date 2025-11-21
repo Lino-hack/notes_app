@@ -1,0 +1,44 @@
+version: "3.9"
+services:
+  mongo:
+    image: mongo:7.0
+    container_name: notes-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  backend:
+    build: ./backend
+    container_name: notes-backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://root:example@mongo:27017/notes-app?authSource=admin
+      MONGO_DB: notes-app
+      JWT_SECRET: supersecret
+      CLIENT_URL: http://localhost:3000
+      API_BASE_URL: http://localhost:5000/api
+      UPLOAD_DIR: /app/uploads
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - REACT_APP_API_URL=http://backend:5000/api
+    container_name: notes-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:

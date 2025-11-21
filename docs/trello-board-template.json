@@ -1,0 +1,31 @@
+{
+  "name": "FEVEO Notes – Niveau 4",
+  "lists": [
+    {
+      "name": "Backlog",
+      "cards": [
+        { "name": "US-01 | Authentification JWT" },
+        { "name": "US-02 | CRUD Notes + Upload" }
+      ]
+    },
+    {
+      "name": "Ready",
+      "cards": [
+        { "name": "US-03 | Recherche & Filtres" },
+        { "name": "US-04 | Statistiques" }
+      ]
+    },
+    { "name": "In Progress", "cards": [] },
+    { "name": "Code Review", "cards": [] },
+    { "name": "QA / Tests", "cards": [] },
+    { "name": "Done", "cards": [] }
+  ],
+  "labels": [
+    { "name": "backend", "color": "red" },
+    { "name": "frontend", "color": "blue" },
+    { "name": "devops", "color": "green" },
+    { "name": "docs", "color": "purple" },
+    { "name": "urgent", "color": "yellow" }
+  ]
+}
+
