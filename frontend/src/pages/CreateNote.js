@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
+import 'tinymce/tinymce';
+import 'tinymce/themes/silver';
+import 'tinymce/icons/default';
 import { Link, useNavigate } from "react-router-dom";
 import API from "../services/api";
 import { CATEGORY_CONFIG } from "../constants";
@@ -110,7 +113,6 @@ export default function CreateNote() {
         <div>
           <label className="mb-2 block text-sm font-medium">Contenu enrichi</label>
           <Editor
-            apiKey="2t9s8oq76q5xqsvm3peb054zd5rlreabqnagizdtkc9c47se"
             init={editorConfig}
             value={content}
             onEditorChange={(value) => setContent(value)}
